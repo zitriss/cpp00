@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:33:11 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/01 18:20:30 by tlize            ###   ########.fr       */
+/*   Updated: 2025/09/08 18:15:23 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 class Contact
 {
 public:
+    Contact() {}
 // GETTER
-    int get_id();
-    int get_phone();
+    int         get_id();
+    int         get_phone();
     std::string get_first_name();
     std::string get_last_name();
     std::string get_nickname();
@@ -33,8 +34,8 @@ public:
     void set_nickname(std::string new_nickname);
     void set_darkest_secret(std::string new_darkest_secret);
 private:
-    int id;
-    int phone;
+    int         id;
+    int         phone;
     std::string first_name;
     std::string last_name;
     std::string nickname;
