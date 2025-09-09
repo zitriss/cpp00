@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:47:34 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/08 18:54:02 by tlize            ###   ########.fr       */
+/*   Updated: 2025/09/09 14:17:53 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	PhoneBook::add_contact()
     this->set_contact_count(position + 1);
     Contact newcontact;
     std::string input;
-    int number;
     //FILL
     newcontact.set_id(position);
     std::cout << "First name ?\n";
@@ -39,8 +38,8 @@ void	PhoneBook::add_contact()
     getline(std::cin, input);
     newcontact.set_nickname(input);
     std::cout << "Phone number ?\n";
-    std::cin >> number;
-    newcontact.set_phone(number);
+    getline(std::cin, input);
+    newcontact.set_phone(input);
     std::cout << "Darkest secret ?\n";
     getline(std::cin, input);
     newcontact.set_darkest_secret(input);
@@ -48,33 +47,36 @@ void	PhoneBook::add_contact()
     this->contacts[position] = newcontact;
 }
 
-static void	format_string(std::string str)
+static std::string  format_string(std::string str)
 {
-    if (str.length() > 10)
+    std::string new_str = str;
+    if (new_str.length() > 10)
 	{
-		str = str.substr(0, 10);
-		str[9] = '.';
+		new_str = new_str.substr(0, 10);
+		new_str[9] = '.';
 	}
-	else if (str.length() < 10)
+	else if (new_str.length() < 10)
 	{
-		str = std::string(10 - str.length(), ' ') + str;
+        while(new_str.length() < 10)
+		new_str = " " + new_str;
 	}
+    return (new_str);
 }
 
 void	PhoneBook::show_contacts()
 {
-    std::cout << "   Index  |First name| Last name| Nickname \n";
+    std::cout << "     Index|First name| Last name|  Nickname\n";
     std::cout << "===========================================\n";
-    for (int i = 0; i < this->get_contact_count() || i < 8; i++)
+    for (int i = 0; i <= this->get_contact_count() || i < 8; i++)
     {
         std::string temp_id = std::to_string(contacts[i].get_id());
         std::string temp_fname = contacts[i].get_first_name();
         std::string temp_lname = contacts[i].get_last_name();
         std::string temp_nickname = contacts[i].get_nickname();
-		format_string(temp_id);
-		format_string(temp_fname);
-		format_string(temp_lname);
-		format_string(temp_nickname);
+		temp_id = format_string(temp_id);
+		temp_fname = format_string(temp_fname);
+		temp_lname = format_string(temp_lname);
+		temp_nickname = format_string(temp_nickname);
 		std::cout << temp_id << "|" << temp_fname << "|" << temp_lname << "|" << temp_nickname << "\n";
     }
 }

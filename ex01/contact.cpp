@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:24:01 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/08 18:15:22 by tlize            ###   ########.fr       */
+/*   Updated: 2025/09/09 14:13:11 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int			Contact::get_id() {
     return (this->id);        
 }
-int			Contact::get_phone() {
+std::string	Contact::get_phone() {
     return (this->phone);        
 }
 std::string	Contact::get_first_name() {
@@ -36,7 +36,7 @@ std::string	Contact::get_darkest_secret() {
 void	Contact::set_id(int new_id){
 	this->id = new_id;
 }
-void	Contact::set_phone(int new_phone){
+void	Contact::set_phone(std::string	new_phone){
 	this->phone = new_phone;
 }
 void	Contact::set_first_name(std::string new_first_name){
