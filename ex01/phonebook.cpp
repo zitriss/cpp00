@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:47:34 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/09 16:31:06 by tlize            ###   ########.fr       */
+/*   Updated: 2025/09/09 16:42:39 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	PhoneBook::add_contact()
     if (input.empty())
     {
         std::cout << "Empty entry\n";
+		this->set_contact_count(position);
         return;
     }
     newcontact.set_first_name(input);
@@ -41,6 +42,7 @@ void	PhoneBook::add_contact()
     if (input.empty())
     {
         std::cout << "Empty entry\n";
+		this->set_contact_count(position);
         return;
     }
     newcontact.set_last_name(input);
@@ -49,6 +51,7 @@ void	PhoneBook::add_contact()
     if (input.empty())
     {
         std::cout << "Empty entry\n";
+		this->set_contact_count(position);
         return;
     }
     newcontact.set_nickname(input);
@@ -57,6 +60,7 @@ void	PhoneBook::add_contact()
     if (input.empty())
     {
         std::cout << "Empty entry\n";
+		this->set_contact_count(position);
         return;
     }
     try
@@ -66,6 +70,7 @@ void	PhoneBook::add_contact()
     catch(const std::exception&)
     {
         std::cout << "Not a number\n";
+		this->set_contact_count(position);
         return;
     }
     newcontact.set_phone(input);
@@ -74,6 +79,7 @@ void	PhoneBook::add_contact()
     if (input.empty())
     {
         std::cout << "Empty entry\n";
+		this->set_contact_count(position);
         return;
     }
     newcontact.set_darkest_secret(input);
