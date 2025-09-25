@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 17:17:44 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/09 17:47:29 by tlize            ###   ########.fr       */
+/*   Updated: 2025/09/23 18:06:21 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ int Account::getNbWithdrawals(void)
 int Account::checkAmount(void) const
 {
     return (this->_amount);
+}
+
+void Account::displayAccountsInfos(void)
+{
+    std::cout << "super";
 }
 
