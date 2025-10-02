@@ -1,8 +1,8 @@
 # == Makefile pour ex02 ==
 
 NAME = account
-CXX = c++
-CXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -14,11 +14,11 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(YELLOW):it's accountin time ?$(NC)"
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
