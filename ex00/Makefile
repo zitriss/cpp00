@@ -1,8 +1,8 @@
 # == Makefile pour megaphone ==
 
 NAME = megaphone
-CXX = c++
-CXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -14,11 +14,11 @@ NC = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(YELLOW)MEGAPHOOOOOOONE$(NC)"
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

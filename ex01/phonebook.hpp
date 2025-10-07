@@ -6,7 +6,7 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:19:18 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/09 14:44:24 by tlize            ###   ########.fr       */
+/*   Updated: 2025/10/07 13:37:51 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ public:
     void    show_single();
     int     get_contact_count();
     void	set_contact_count(int new_contact_count);
+
+    PhoneBook();
+    
 private:
     Contact		contacts[8];
-    int			contact_count = 0;
+    int			contact_count;
 };
 
 #endif

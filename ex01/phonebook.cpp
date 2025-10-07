@@ -6,11 +6,30 @@
 /*   By: tlize <tlize@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:47:34 by tlize             #+#    #+#             */
-/*   Updated: 2025/09/09 16:42:39 by tlize            ###   ########.fr       */
+/*   Updated: 2025/10/07 13:55:25 by tlize            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+#include <sstream>
+
+PhoneBook::PhoneBook()
+{
+    contact_count = 0;
+}
+
+int string_to_int(const std::string& str) {
+    std::stringstream ss(str);
+    int result;
+    ss >> result;
+    return result;
+}
+
+std::string int_to_string(int value) {
+    std::stringstream ss;
+    ss << value;
+    return ss.str();
+}
 
 int		PhoneBook::get_contact_count() {
     return (this->contact_count);        
@@ -63,16 +82,6 @@ void	PhoneBook::add_contact()
 		this->set_contact_count(position);
         return;
     }
-    try
-    {
-        std::stoll(input);            
-    }
-    catch(const std::exception&)
-    {
-        std::cout << "Not a number\n";
-		this->set_contact_count(position);
-        return;
-    }
     newcontact.set_phone(input);
     std::cout << "Darkest secret ?\n";
     getline(std::cin, input);
@@ -109,7 +118,7 @@ int PhoneBook::show_contacts()
     std::cout << "===========================================\n";
     for (int i = 0; i < this->get_contact_count() && i < 8; i++)
     {
-        std::string temp_id = std::to_string(contacts[i].get_id());
+        std::string temp_id = int_to_string(contacts[i].get_id());
         std::string temp_fname = contacts[i].get_first_name();
         std::string temp_lname = contacts[i].get_last_name();
         std::string temp_nickname = contacts[i].get_nickname();
@@ -135,10 +144,10 @@ void PhoneBook::show_single()
             return ;
         try 
         {
-            std::stoi(input);
+            string_to_int(input);
             for (int i = 0; i < this->get_contact_count() && i < 8; i++)
             {
-                if (contacts[i].get_id() == std::stoi(input))
+                if (contacts[i].get_id() == string_to_int(input))
                 {
                     std::cout << "Id : " << contacts[i].get_id() << "\n";
                     std::cout << "First name : " << contacts[i].get_first_name() << "\n";
@@ -157,3 +166,4 @@ void PhoneBook::show_single()
         }
     }
 }
+
